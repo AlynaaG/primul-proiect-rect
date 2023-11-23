@@ -59,6 +59,7 @@ function ModalComponent({ newTask }) {
         style={customStyles}
         contentLabel="Example Modal"
       >
+        <label htmlFor="task_id">ID</label>
         <input
           type="text"
           placeholder="Task Id"
@@ -67,6 +68,7 @@ function ModalComponent({ newTask }) {
           value={taskId}
           onChange={(event) => setTaskId(event.target.value)}
         />
+        <label htmlFor="status">Status</label>
         <input
           type="text"
           placeholder="Status"
@@ -75,6 +77,7 @@ function ModalComponent({ newTask }) {
           value={taskStatus}
           onChange={(event) => setTaskStatus(event.target.value)}
         />
+        <label htmlFor="message">Message</label>
         <input
           type="text"
           placeholder="Message"
@@ -83,6 +86,7 @@ function ModalComponent({ newTask }) {
           value={taskMessage}
           onChange={(event) => setTaskMessage(event.target.value)}
         />
+        <label htmlFor="taskDate">Date</label>
         <input
           type="date"
           name="taskDate"

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import Search from "./components/Search";
 import TaskViewer from "./components/TaskViewer";
 
 function App() {
-  const [data, setdata] = useState([
+  const [data, setData] = useState([
     {
       id: "T-1",
       status: "Progress",
@@ -13,7 +13,7 @@ function App() {
     {
       id: "T-2",
       status: "Done",
-      message: "Create a Design System for Enum Workspace.",
+      message: " buna Create a Design System for Enum Workspace.",
       dueDate: new Date(2023, 1, 23),
     },
     {
@@ -53,9 +53,21 @@ function App() {
       dueDate: new Date(2023, 1, 23),
     },
   ]);
+  const [filterData, setFilterData] = useState([]);
+
+  const searchData = (params) => {
+    console.log(params);
+    setFilterData(params);
+  };
+  console.log(filterData);
+  useEffect(() => {}, [filterData]);
   return (
     <>
-      <TaskViewer data={data} setData={setdata} />
+      <Search data={data} searchData={searchData} />
+      <TaskViewer
+        data={filterData.lenght > 0 ? filterData : data}
+        setData={setData}
+      />
     </>
   );
 }
